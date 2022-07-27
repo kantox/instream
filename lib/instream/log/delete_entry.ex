@@ -3,13 +3,15 @@ defmodule Instream.Log.DeleteEntry do
   Log entry definition for delete requests.
   """
 
-  defstruct points: nil,
+  defstruct payload: nil,
             result: nil,
-            metadata: nil
+            metadata: nil,
+            conn: nil
 
   @type t :: %__MODULE__{
-          points: map(),
+          payload: Instream.Connection.delete_request(),
           result: term,
-          metadata: Instream.Log.Metadata.t()
+          metadata: Instream.Log.Metadata.t(),
+          conn: module
         }
 end
